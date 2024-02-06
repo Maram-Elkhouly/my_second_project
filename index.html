@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Drops</title>
+    <link rel="icon" type="image/x-icon" href="images/food6.png">
+    <!--Font Awesome Library-->
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--Render all elements normally-->
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="head">
+        <a href="#" class="logo">Cherry Drops</a>
+        <div class="menu-btn"></div>
+        <nav class="navbar">
+            <div class="nav-item">
+                <a href="#">Home</a>
+                <a href="#">Menu</a>
+                <a href="#">Specials</a>
+                <a href="#">Reservation</a>
+            </div>   
+        </nav>
+    </header>
+    <section class="container">
+        <video class="video-slide active " src="videos/video1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="videos/video2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="videos/video3.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h2 class="title1">THE FINEST CUTS</h2>
+            <p class="p1">prepared to perfection</p>
+            <button class="btn1">OUR MENU</button>
+        </div>
+        <!--content-->
+        <div class="content">
+            <h2 class="title1">AMAZING TASTE</h2>
+            <p class="p1">in every dish</p>
+            <button class="btn1">Specials</button>
+        </div>
+        <!--content-->
+        <div class="content">
+            <h2 class="title1">WE USE QUALITY</h2>
+            <p class="p1">fresh ingredients</p>
+            <button class="btn1">RESERVATION</button>
+        </div>
+        <!--content-->
+        <div class="media-icon">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <!--media-icon-->
+        <div class="slider-nav">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+        <!--slider-nav-->
+    </section>
+    <!--container-->
+    <script type="text/javascript">
+        //javascript of responsive navigation menu
+        const menuBtn = document.querySelector(".menu-btn");
+        const navbar = document.querySelector(".navbar");
+
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navbar.classList.toggle("active");
+        });
+        //javascript for video slider navigation
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+
+
+        var slidernav = function(manual){
+        btns.forEach((btn) => {
+        btn.classList.remove("active");
+        });
+        slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+        contents.forEach((content) => {
+            content.classList.remove("active");
+        });
+
+
+        btns[manual].classList.add("active");
+        slides[manual].classList.add("active");
+        contents[manual].classList.add("active");
+
+        }
+        btns.forEach((btn , i) => {
+        btn.addEventListener("click", () => {
+            slidernav(i);
+            });
+        });
+    </script>
+</body>
+</html>
